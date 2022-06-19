@@ -12,7 +12,7 @@ class UserController {
 
    async store(req, res) {
       try {
-         const novoUser = await User.create(req.body);
+         const novoUser = await User.bulkCreate(req.body);
          return res.json(novoUser);
       } catch (error) {
          return res.status(401).json({
